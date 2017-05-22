@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   // styleUrls: ['../../node_modules/@angular/material/prebuilt-themes/indigo-pink.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'Scotty doesn\'t know!';
 }
