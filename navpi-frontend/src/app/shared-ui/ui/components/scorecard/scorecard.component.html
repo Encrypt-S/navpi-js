@@ -1,0 +1,14 @@
+<mat-card>
+  <h3 class="caption"><small>{{label}}</small></h3>
+  <h2>{{value}}</h2>
+  <span *ngIf="suggestionBefore != null" class="suggestion before">{{suggestionBefore}}</span>
+  <span *ngIf="description != null" class="description">
+    <!--<material-icon *ngIf="changeGlyph && description != '' && !isChangeNeutral"-->
+                   <!--class="change-glyph"-->
+                   <!--[icon]="changeGlyphIcon"-->
+                   <!--size="small">-->
+    <!--</material-icon>-->
+    {{description}}
+  </span>
+  <span *ngIf="suggestionAfter != null" class="suggestion after">{{suggestionAfter}}</span>
+</mat-card>
