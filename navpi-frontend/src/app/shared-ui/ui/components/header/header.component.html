@@ -1,0 +1,33 @@
+<mat-toolbar class="mat-elevation-z6">
+  <img class="logo" src="./assets/img/logo-mark.png">
+
+  <button mat-button>Dashboard</button>
+  <button mat-button>Wallet</button>
+
+  <span class="spacer"></span>
+
+
+  <!--<button color="default" *ngIf="isLoggedIn" mat-button [matMenuTriggerFor]="menu">Menu</button>-->
+  <!--<mat-menu #menu="matMenu">-->
+
+    <!--<button mat-menu-item><mat-icon>person</mat-icon>Account</button>-->
+    <!--<button (click)="navTo('logout')" mat-menu-item><mat-icon>power_settings_new</mat-icon>Logout</button>-->
+  <!--</mat-menu>-->
+
+
+  <!--<button *ngIf="!isLoggedIn"-->
+          <!--(click)="navTo('login')"-->
+          <!--type="button" mat-raised-button-->
+          <!--color="accent">-->
+    <!--<mat-icon>person</mat-icon> Login-->
+  <!--</button>-->
+
+  <button mat-icon-button>
+    <mat-icon
+      matTooltip="Settings"
+    >settings</mat-icon>
+  </button>
+
+</mat-toolbar>
+
+
