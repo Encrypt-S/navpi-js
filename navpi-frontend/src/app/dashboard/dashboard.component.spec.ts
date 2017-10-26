@@ -1,7 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DashboardComponent } from './dashboard.component';
-// import {FooterComponentMock, HeaderComponentMock} from '../../testing/component-stubs';
+import {DashboardComponent} from './dashboard.component';
+
+import {ScoreCardComponentMock} from '../shared-ui/ui/components/scorecard/mock/scorecard.component.mock';
+import {MatCardModule} from '@angular/material';
+import {HeaderComponentMock} from '../shared-ui/ui/components/header/mocks/header.component.mock';
+
+
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -9,10 +14,14 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        MatCardModule,
+      ],
+
       declarations: [
         DashboardComponent,
-        // FooterComponentMock,
-        // HeaderComponentMock
+        HeaderComponentMock,
+        ScoreCardComponentMock
       ]
     })
     .compileComponents();
