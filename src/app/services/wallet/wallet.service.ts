@@ -3,7 +3,7 @@ import {Http} from '@angular/http';
 import {CoreService} from '../core/core.service';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
-import {StakingVO} from './vo/staking.vo';
+import {Staking30DayVO, StakingVO} from './vo/staking.vo';
 
 
 @Injectable()
@@ -17,9 +17,7 @@ export class WalletService {
 
   async getStakingReport() {
 
-
     const path = `${this._coreService.apiServerPath}/wallet/v1/getstakereport`;
-
 
     return await this._http.get(path)
       .map((res) => res.json())
@@ -35,6 +33,7 @@ export class WalletService {
   _parseStakingReport(rawReportJSON: any): StakingVO {
 
     const stakingData: StakingVO = {} as StakingVO;
+    const stakingGraph: Staking30DayVO[] = [];
 
     const result = rawReportJSON.result;
 
@@ -58,6 +57,10 @@ export class WalletService {
           stakingData.last365Days = parseFloat(result[key]);
           break;
 
+        case 'Latest Stake':
+          stakingData.latestStake = parseFloat(result[key]);
+          break;
+
         case 'Latest Time':
           stakingData.latestTime = new Date(result[key]);
           break;
@@ -70,12 +73,20 @@ export class WalletService {
           stakingData.timeTaken = parseFloat(result[key]);
           break;
 
+        default:
+          // not caught above so is day report
+          const stakeGraphVO: Staking30DayVO = {} as Staking30DayVO;
+          stakeGraphVO.amount = parseFloat(result[key]);
+          stakeGraphVO.date = new Date(key);
+
+          stakingGraph.push(stakeGraphVO);
+
       }
 
 
     });
 
-    console.log(stakingData);
+    stakingData.graph = stakingGraph;
     return stakingData;
 
   }

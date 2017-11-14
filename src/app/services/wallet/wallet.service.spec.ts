@@ -89,6 +89,17 @@ describe('WalletService', () => {
     }));
 
 
+    it('should have the latest stake', inject([WalletService], (service: WalletService) => {
+      const stakeData = service._parseStakingReport(data);
+      expect(stakeData.latestStake).toBeDefined();
+    }));
+
+    it('should have the correct last 365 days', inject([WalletService], (service: WalletService) => {
+      const stakeData = service._parseStakingReport(data);
+      expect(stakeData.latestStake).toEqual(1.28438356);
+    }));
+
+
     it('should have the last  time', inject([WalletService], (service: WalletService) => {
       const stakeData = service._parseStakingReport(data);
       expect(stakeData.latestTime).toBeDefined();
@@ -118,6 +129,40 @@ describe('WalletService', () => {
     it('should have the correct timeTake', inject([WalletService], (service: WalletService) => {
       const stakeData = service._parseStakingReport(data);
       expect(stakeData.timeTaken).toEqual(2);
+    }));
+
+
+    it('should have the 30 day grapth', inject([WalletService], (service: WalletService) => {
+      const stakeData = service._parseStakingReport(data);
+      expect(stakeData.graph).toBeDefined();
+    }));
+
+    it('graph should 30 days of data', inject([WalletService], (service: WalletService) => {
+      const stakeData = service._parseStakingReport(data);
+      expect(stakeData.graph.length).toEqual(30);
+    }));
+
+
+    it('graph day 1 should be correct', inject([WalletService], (service: WalletService) => {
+      const stakeData = service._parseStakingReport(data);
+      expect(stakeData.graph[0].amount).toEqual(380.90588838);
+    }));
+
+    it('graph day 2 should be correct', inject([WalletService], (service: WalletService) => {
+      const stakeData = service._parseStakingReport(data);
+      expect(stakeData.graph[1].amount).toEqual(557.79027099);
+    }));
+
+    it('graph day 6 should be correct', inject([WalletService], (service: WalletService) => {
+      const stakeData = service._parseStakingReport(data);
+      expect(stakeData.graph[5].amount).toEqual(376.1910957);
+      expect(stakeData.graph[5].date).toEqual(new Date('2017-11-08 11:00:00'));
+    }));
+
+    it('graph day 30 should be correct', inject([WalletService], (service: WalletService) => {
+      const stakeData = service._parseStakingReport(data);
+      expect(stakeData.graph[29].amount).toEqual(0);
+      expect(stakeData.graph[29].date).toEqual(new Date('2017-10-15 11:00:00'));
     }));
 
 
