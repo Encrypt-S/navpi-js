@@ -7,7 +7,7 @@ export interface StakingVO {
   day7: number;
   day30: number;
   day365: number;
-  lastestStake: number;
+  latestStake: number;
   latestTime: Date;
   stakeCounted: number;
   timeTaken: number;
@@ -18,6 +18,6 @@ export interface StakingVO {
 export interface Staking30DayVO {
 
   date: Date;
-  amount: number
+  amount: number;
 
 }
