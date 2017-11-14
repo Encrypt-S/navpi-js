@@ -16,16 +16,12 @@ export class WalletService {
 
 
   async getStakingReport() {
-
     const path = `${this._coreService.apiServerPath}/wallet/v1/getstakereport`;
 
-    return await this._http.get(path)
-      .map((res) => res.json())
-      .subscribe((json: any) => {
+    const json =  await this._http.get(path).map((res) => res.json()).toPromise();
 
-        return parseStakingReport(json);
+    return parseStakingReport(json);
 
-      });
 
   }
 

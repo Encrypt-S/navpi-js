@@ -5,8 +5,6 @@ import {DashboardComponent} from './dashboard.component';
 import {ScoreCardComponentMock} from '../shared-ui/ui/components/scorecard/mock/scorecard.component.mock';
 import {MatCardModule} from '@angular/material';
 import {HeaderComponentMock} from '../shared-ui/ui/components/header/mocks/header.component.mock';
-import {WalletService} from '../services/wallet/wallet.service';
-import {WalletServiceStub} from '../services/wallet/wallet.service.stub';
 
 
 describe('DashboardComponent', () => {
@@ -19,7 +17,7 @@ describe('DashboardComponent', () => {
         MatCardModule,
       ],
       providers: [
-        {provide: WalletService, useClass: WalletServiceStub}
+
       ],
       declarations: [
         DashboardComponent,
