@@ -23,13 +23,11 @@ export class WalletService {
       .map((res) => res.json())
       .subscribe((json: any) => {
 
-        const stakingData: StakingVO = parseStakingReport(json);
+        return parseStakingReport(json);
 
       });
 
   }
-
-
 
 
 
