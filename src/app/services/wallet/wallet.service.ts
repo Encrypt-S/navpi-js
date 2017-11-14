@@ -24,9 +24,7 @@ export class WalletService {
       .map((res) => res.json())
       .subscribe((json: any) => {
 
-
-        let stakingData: StakingVO = this._parseStakingReport(json);
-
+        const stakingData: StakingVO = this._parseStakingReport(json);
 
       });
 
@@ -37,7 +35,7 @@ export class WalletService {
 
     const stakingData: StakingVO = {} as StakingVO;
 
-    var result = rawReportJSON.result;
+    const result = rawReportJSON.result;
 
     const  arrayOfKeys = Object.keys(result);
     arrayOfKeys.forEach((key) => {
