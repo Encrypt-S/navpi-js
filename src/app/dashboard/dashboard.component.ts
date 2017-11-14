@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {WalletService} from '../services/wallet/wallet.service';
 
 // declare var TradingView;
 
@@ -9,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private walletSerive: WalletService
+  ) { }
 
   ngOnInit() {
+
+    this.walletSerive.getStakingReport();
 
     // new TradingView.MediumWidget({
     //   "container_id": "tv-medium-widget-54b92",

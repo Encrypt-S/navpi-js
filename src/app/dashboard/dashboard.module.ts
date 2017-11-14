@@ -5,12 +5,14 @@ import {DashboardRoutingModule} from './dashboard-routing.module';
 import {SharedMaterialModule} from '../shared-ui/material/shared-material.module';
 import {SharedUIModule} from '../shared-ui/ui/shared-ui.module';
 import { NetworkStatusComponent } from './network-status/network-status.component';
-import {WalletService} from "../services/wallet/wallet.service";
+import {HttpModule} from '@angular/http';
+
 
 
 @NgModule({
   imports: [
     CommonModule,
+    HttpModule,
 
 
     SharedMaterialModule,
@@ -19,9 +21,6 @@ import {WalletService} from "../services/wallet/wallet.service";
     DashboardRoutingModule
   ],
   declarations: [DashboardComponent, NetworkStatusComponent],
-  providers: [
-    WalletService
-  ],
   exports: [DashboardComponent]
 })
 export class DashboardModule { }
