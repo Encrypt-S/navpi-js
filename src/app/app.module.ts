@@ -23,7 +23,8 @@ import {CoreService} from './services/core/core.service';
   ],
   providers: [
     CoreService,
-    WalletService
+    WalletService,
+
   ],
   bootstrap: [AppComponent]
 })
