@@ -3,10 +3,10 @@ export interface StakingVO {
 
   graph: Staking30DayVO[];
 
-  hr24: number;
-  day7: number;
-  day30: number;
-  day365: number;
+  last24Hour: number;
+  last7Days: number;
+  last30Days: number;
+  last365Days: number;
   latestStake: number;
   latestTime: Date;
   stakeCounted: number;
