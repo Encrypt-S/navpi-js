@@ -7,6 +7,7 @@ import {DashboardModule} from './dashboard/dashboard.module';
 import {WalletModule} from './wallet/wallet.module';
 import {WalletService} from './services/wallet/wallet.service';
 import {CoreService} from './services/core/core.service';
+import {DashboardResolverService} from './services/resolvers/dashboard-resolver.service';
 
 @NgModule({
   declarations: [
@@ -22,8 +23,13 @@ import {CoreService} from './services/core/core.service';
     AppRoutingModule
   ],
   providers: [
+
+    // SERVICES
     CoreService,
     WalletService,
+
+    // RESOLVERS
+    DashboardResolverService
 
   ],
   bootstrap: [AppComponent]
