@@ -34,7 +34,7 @@ describe('WalletService', () => {
 
     beforeEach(() => {
 
-      data = JSON.stringify(strData);
+      data = JSON.parse(strData);
 
     });
 

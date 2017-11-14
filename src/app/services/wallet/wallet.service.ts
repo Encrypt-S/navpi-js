@@ -37,18 +37,47 @@ export class WalletService {
 
     const stakingData: StakingVO = {} as StakingVO;
 
-    const  arrayOfKeys = Object.keys(rawReportJSON.result);
-    arrayOfKeys.forEach((item) => {
+    var result = rawReportJSON.result;
 
-      switch(item) {
+    const  arrayOfKeys = Object.keys(result);
+    arrayOfKeys.forEach((key) => {
+
+      switch (key) {
         case 'Last 24H':
-          stakingData.last7Days
+          stakingData.last24Hour = parseFloat(result[key]);
+          break;
+
+        case 'Last 7 Days':
+          stakingData.last7Days = parseFloat(result[key]);
+          break;
+
+        case 'Last 30 Days':
+          stakingData.last30Days = parseFloat(result[key]);
+          break;
+
+        case 'Last 365 Days':
+          stakingData.last365Days = parseFloat(result[key]);
+          break;
+
+        case 'Latest Time':
+          stakingData.latestTime = new Date(result[key]);
+          break;
+
+        case 'Stake counted':
+          stakingData.stakeCounted = parseFloat(result[key]);
+          break;
+
+        case 'time took (ms)':
+          stakingData.timeTaken = parseFloat(result[key]);
+          break;
+
       }
 
 
     });
 
-    return stakingData
+    console.log(stakingData);
+    return stakingData;
 
   }
 
