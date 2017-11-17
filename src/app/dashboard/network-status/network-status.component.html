@@ -1,3 +1,54 @@
-<p>
-  network-status works!
-</p>
+
+
+<mat-card style="margin-bottom: 30px;">
+
+  <mat-card-title>Staking Rewards</mat-card-title>
+  <mat-card-subtitle>Last 30 Days</mat-card-subtitle>
+  <mat-card-content>
+    <div style="width: 100%; height: 300px;">
+      <ngx-charts-area-chart
+        [scheme]="colorScheme"
+        [results]="graph"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        [autoScale]="autoScale"
+        [showGridLines]="false"
+      >
+      </ngx-charts-area-chart>
+
+    </div>
+  </mat-card-content>
+
+</mat-card>
+
+
+<div fxLayout="row"
+     fxLayoutAlign="space-between start"
+     fxLayoutGap="20"
+>
+
+    <app-scorecard label="Staked in last 24 Hours"
+                   value="{{stakingData.last24Hour}}"
+    ></app-scorecard>
+
+
+    <app-scorecard label="Staked in last 7 Days"
+                   value="{{stakingData.last7Days}}"
+    ></app-scorecard>
+
+    <app-scorecard label="Staked in last 30 Days"
+                   value="{{stakingData.last30Days}}"
+    ></app-scorecard>
+
+    <app-scorecard label="Staked in last 365 Days"
+                   value="{{stakingData.last365Days}}"
+    ></app-scorecard>
+
+</div>
+

@@ -183,7 +183,7 @@ export class OrgServiceStub {
   public findOrdById(orgId:string): OrgStore {
 
     let os = new OrgStore();
-    os.name = this.testName;
+    os.value = this.testName;
 
     return os;
   }
