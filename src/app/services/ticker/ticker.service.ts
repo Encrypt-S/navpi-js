@@ -27,7 +27,6 @@ export class TickerService {
     const path = 'https://api.coinmarketcap.com/v1/ticker/nav-coin/';
 
     const json =  await this._http.get(path).map((res) => res.json()).toPromise();
-    const json =  await this._http.get(path).map((res) => res.json()).toPromise();
 
     return parseTicker(json);
 
