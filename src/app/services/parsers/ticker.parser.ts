@@ -5,7 +5,7 @@ import {TickerVO} from './vo/ticker.vo';
 
 export function parseTicker(rawJSON: any) {
 
-  /*
+
 
   const d = rawJSON[0];
 
@@ -15,28 +15,20 @@ export function parseTicker(rawJSON: any) {
   vo.id = d.id;
   vo.name = d.name;
   vo.symbol = d.symbol;
-  vo.rank
+  vo.rank = parseInt(d.rank, 10);
+  vo.priceUSD = parseFloat(d.price_usd);
+  vo.priceBTC = parseFloat(d.price_btc);
+  vo.priceBTC = parseFloat(d.price_btc);
+  vo.volume24Hour = parseFloat(d['24h_volume_usd']);
+  vo.marketCapUSD = parseFloat(d['market_cap_usd']);
+  vo.availableSupply = parseFloat(d['available_supply']);
+  vo.totalSupply = parseFloat(d['total_supply']);
+  vo.percentChange1h = parseFloat(d['percent_change_1h']);
+  vo.percentChange7d = parseFloat(d['percent_change_7d']);
+  vo.percentChange24h = parseFloat(d['percent_change_24h']);
+  vo.lastUpdated = parseInt(d['last_updated'], 10);
 
-  {
-    "id": "nav-coin",
-    "name": "NAV Coin",
-    "symbol": "NAV",
-    "rank": "93",
-    "price_usd": "0.839057",
-    "price_btc": "0.00010644",
-    "24h_volume_usd": "1176400.0",
-    "market_cap_usd": "52056813.0",
-    "available_supply": "62042046.0",
-    "total_supply": "62042046.0",
-    "max_supply": null,
-    "percent_change_1h": "-0.7",
-    "percent_change_24h": "-3.76",
-    "percent_change_7d": "-8.56",
-    "last_updated": "1510901644"
-  }
-]
+  return vo;
 
-
-*/
 
 }

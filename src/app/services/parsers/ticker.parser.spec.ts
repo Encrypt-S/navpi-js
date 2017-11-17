@@ -55,7 +55,7 @@ describe('Ticker Data Parser', () => {
   });
 
   it('should have the correct symbol', () => {
-    expect(tickerData.symbol).toEqual('NAV Coin');
+    expect(tickerData.symbol).toEqual('NAV');
   });
 
 
@@ -73,7 +73,7 @@ describe('Ticker Data Parser', () => {
   });
 
   it('should have the correct USD price', () => {
-    expect(tickerData.priceUSD).toEqual(0.00010644);
+    expect(tickerData.priceUSD).toEqual(0.839057);
   });
 
   it('should have a BTC price', () => {
@@ -90,7 +90,7 @@ describe('Ticker Data Parser', () => {
   });
 
   it('should have the correct 24 hour volume', () => {
-    expect(tickerData.volume24Hour).toEqual(0.00010644);
+    expect(tickerData.volume24Hour).toEqual(1176400.0);
   });
 
 
@@ -126,7 +126,7 @@ describe('Ticker Data Parser', () => {
   });
 
   it('should have the correct percent change 1h', () => {
-    expect(tickerData.percentChange1h).toEqual('-0.7');
+    expect(tickerData.percentChange1h).toEqual(-0.7);
   });
 
 
@@ -136,7 +136,7 @@ describe('Ticker Data Parser', () => {
   });
 
   it('should have the correct percent change 24h', () => {
-    expect(tickerData.percentChange24h).toEqual('-3.76');
+    expect(tickerData.percentChange24h).toEqual(-3.76);
   });
 
 
@@ -145,7 +145,7 @@ describe('Ticker Data Parser', () => {
   });
 
   it('should have the correct percent change 7d', () => {
-    expect(tickerData.percent).toEqual('-8.56');
+    expect(tickerData.percentChange7d).toEqual(-8.56);
   });
 
 
