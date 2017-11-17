@@ -17,7 +17,7 @@ export interface StakingVO {
 
 export interface Staking30DayVO {
 
-  date: Date;
-  amount: number;
+  name: string;
+  value: number;
 
 }

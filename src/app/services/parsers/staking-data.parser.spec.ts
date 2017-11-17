@@ -123,23 +123,23 @@ describe('Staking Data Parser', () => {
 
   it('graph day 1 should be correct', () => {
     const stakeData = parseStakingReport(data);
-    expect(stakeData.graph[0].amount).toEqual(380.90588838);
+    expect(stakeData.graph[0].value).toEqual(380.90588838);
   });
 
   it('graph day 2 should be correct', () => {
     const stakeData = parseStakingReport(data);
-    expect(stakeData.graph[1].amount).toEqual(557.79027099);
+    expect(stakeData.graph[1].value).toEqual(557.79027099);
   });
 
   it('graph day 6 should be correct', () => {
     const stakeData = parseStakingReport(data);
-    expect(stakeData.graph[5].amount).toEqual(376.1910957);
+    expect(stakeData.graph[5].value).toEqual(376.1910957);
     expect(stakeData.graph[5].date).toEqual(new Date('2017-11-08 11:00:00'));
   });
 
   it('graph day 30 should be correct', () => {
     const stakeData = parseStakingReport(data);
-    expect(stakeData.graph[29].amount).toEqual(0);
+    expect(stakeData.graph[29].value).toEqual(0);
     expect(stakeData.graph[29].date).toEqual(new Date('2017-10-15 11:00:00'));
   });
 

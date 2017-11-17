@@ -1,6 +1,7 @@
 
 
 import {Staking30DayVO, StakingVO} from './vo/staking.vo';
+import {DatePipe} from '@angular/common';
 
 export function  parseStakingReport(rawReportJSON: any): StakingVO {
 
@@ -48,8 +49,8 @@ export function  parseStakingReport(rawReportJSON: any): StakingVO {
       default:
         // not caught above so is day report
         const stakeGraphVO: Staking30DayVO = {} as Staking30DayVO;
-        stakeGraphVO.amount = parseFloat(result[key]);
-        stakeGraphVO.date = new Date(key);
+        stakeGraphVO.value = parseFloat(result[key]);
+        stakeGraphVO.name = new DatePipe('en-US').transform(new Date(key), 'd MMM');
 
         stakingGraph.push(stakeGraphVO);
 
