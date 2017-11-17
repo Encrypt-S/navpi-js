@@ -8,6 +8,7 @@ import {WalletModule} from './wallet/wallet.module';
 import {WalletService} from './services/wallet/wallet.service';
 import {CoreService} from './services/core/core.service';
 import {DashboardResolverService} from './services/resolvers/dashboard-resolver.service';
+import {DataService} from './services/data/data.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,8 @@ import {DashboardResolverService} from './services/resolvers/dashboard-resolver.
     // SERVICES
     CoreService,
     WalletService,
+
+    DataService,
 
     // RESOLVERS
     DashboardResolverService
