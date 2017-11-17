@@ -9,6 +9,7 @@ import {WalletService} from './services/wallet/wallet.service';
 import {CoreService} from './services/core/core.service';
 import {DashboardResolverService} from './services/resolvers/dashboard-resolver.service';
 import {DataService} from './services/data/data.service';
+import {TickerService} from './services/ticker/ticker.service';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {DataService} from './services/data/data.service';
     WalletService,
 
     DataService,
+    TickerService,
 
     // RESOLVERS
     DashboardResolverService
