@@ -4,6 +4,7 @@ import {CoreService} from '../core/core.service';
 import 'rxjs/add/operator/map';
 import {StakingVO} from '../parsers/vo/staking.vo';
 import {parseStakingReport} from '../parsers/staking-data.parser';
+import {DataService} from '../data/data.service';
 
 
 @Injectable()
@@ -11,7 +12,8 @@ export class WalletService {
 
   constructor(
     private _http: Http,
-    private _coreService: CoreService
+    private _coreService: CoreService,
+    private _dataService: DataService
   ) { }
 
 
@@ -20,7 +22,9 @@ export class WalletService {
 
     const json =  await this._http.get(path).map((res) => res.json()).toPromise();
 
-    return parseStakingReport(json);
+    this._dataService.stakingData = parseStakingReport(json);
+
+    return this._dataService.stakingData
 
 
   }
