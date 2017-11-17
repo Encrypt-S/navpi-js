@@ -1,11 +1,16 @@
-import { TestBed, inject } from '@angular/core/testing';
+import {inject, TestBed} from '@angular/core/testing';
 
-import { DashboardResolverService } from './dashboard-resolver.service';
+import {DashboardResolverService} from './dashboard-resolver.service';
+import {WalletService} from '../wallet/wallet.service';
+import {WalletServiceStub} from '../wallet/wallet.service.stub';
 
 describe('DashboardResolverService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DashboardResolverService]
+      providers: [
+        DashboardResolverService,
+        {provide: WalletService, useClass: WalletServiceStub}
+      ]
     });
   });
 
