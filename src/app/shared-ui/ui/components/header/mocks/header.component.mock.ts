@@ -4,4 +4,4 @@ import {Component} from '@angular/core';
   selector: 'app-header',
   template: ''
 })
-export class HeaderComponentMock { }
+export class HeaderMockComponent { }
