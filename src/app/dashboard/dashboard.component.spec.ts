@@ -2,9 +2,10 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {DashboardComponent} from './dashboard.component';
 
-import {ScoreCardComponentMock} from '../shared-ui/ui/components/scorecard/mock/scorecard.component.mock';
+import {ScoreCardMockComponent} from '../shared-ui/ui/components/scorecard/mock/scorecard.mock.component';
 import {MatCardModule} from '@angular/material';
-import {HeaderComponentMock} from '../shared-ui/ui/components/header/mocks/header.component.mock';
+import {HeaderMockComponent} from '../shared-ui/ui/components/header/mocks/header.component.mock';
+import {NetworkStatusMockComponent} from './network-status/mock/network-status.mock.component';
 
 
 describe('DashboardComponent', () => {
@@ -21,8 +22,9 @@ describe('DashboardComponent', () => {
       ],
       declarations: [
         DashboardComponent,
-        HeaderComponentMock,
-        ScoreCardComponentMock
+        HeaderMockComponent,
+        ScoreCardMockComponent,
+        NetworkStatusMockComponent
       ]
     })
     .compileComponents();

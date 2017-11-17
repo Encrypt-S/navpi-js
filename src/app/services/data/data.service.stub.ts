@@ -4,10 +4,13 @@ import {StakingVO} from '../parsers/vo/staking.vo';
 @Injectable()
 export class DataServiceStub {
 
-  stakingData: StakingVO = {} as StakingVO;
+  stakingData: StakingVO;
 
   constructor() {
+
+    this.stakingData = {} as StakingVO;
     this.stakingData.graph = [];
+
   }
 
 
