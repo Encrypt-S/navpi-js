@@ -5,6 +5,8 @@ import {HttpModule} from '@angular/http';
 import {CoreServiceStub} from '../core/core.service.stub';
 import {CoreService} from '../core/core.service';
 import {StakingVO} from '../parsers/vo/staking.vo';
+import {DataService} from '../data/data.service';
+import {DataServiceStub} from '../data/data.service.stub';
 
 describe('WalletService', () => {
   beforeEach(() => {
@@ -14,7 +16,8 @@ describe('WalletService', () => {
       ],
       providers: [
         WalletService,
-        {provide: CoreService, useClass: CoreServiceStub}
+        {provide: CoreService, useClass: CoreServiceStub},
+        {provide: DataService, useClass: DataServiceStub}
       ]
     });
   });
