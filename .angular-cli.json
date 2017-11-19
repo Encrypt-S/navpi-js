@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "navpi-frontend"
+    "name": "NAV PI"
   },
   "apps": [
     {
@@ -55,9 +55,6 @@
   },
   "defaults": {
     "styleExt": "scss",
-    "class": {
-      "spec": false
-    },
     "component": {}
   }
 }
