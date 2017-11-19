@@ -2,9 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
 
-## Development server
+## Development server - DOCKER
+Make sure you have docker installed, This image will auto reload
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Build the image: 
+`docker build -t navpi-js-dev .`
+
+Run the container: 
+`docker run -it --rm -p 4200:4200 -v ${pwd}/src:/app/src navpi-js-dev`
+
+Please note: The –v volume mapping means that changes on the host and these are immediately available inside the Docker container. Open http://localhost:4200/ 
 
 ## Code scaffolding
 
