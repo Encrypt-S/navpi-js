@@ -24,7 +24,7 @@ export class WalletService {
 
     this._dataService.stakingData = parseStakingReport(json);
 
-    return this._dataService.stakingData
+    return this._dataService.stakingData;
 
 
   }

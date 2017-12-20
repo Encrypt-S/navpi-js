@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DaemonService} from '../../services/daemon/daemon.service';
 
 @Component({
   selector: 'app-daemon-status',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DaemonStatusComponent implements OnInit {
 
-  constructor() { }
+
+  isResponding: Boolean;
+
+  constructor(
+    private daemonService: DaemonService
+  ) { }
 
   ngOnInit() {
+
+   this.daemonService.isDaemonResponding().then((e) => {
+     this.isResponding = e;
+   }).catch((e) => {
+     this.isResponding = e;
+   });
+
   }
 
 }
