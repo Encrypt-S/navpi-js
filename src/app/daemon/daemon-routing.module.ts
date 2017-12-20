@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {DaemonComponent} from './daemon.component';
+import {DaemonStatusComponent} from './daemon-status/daemon-status.component';
 
 @NgModule({
   imports: [
@@ -8,14 +9,19 @@ import {DaemonComponent} from './daemon.component';
 
       {
         path: 'daemon',
-        component: DaemonComponent
+        component: DaemonComponent,
+
+        children: [
+
+          // add the file items component
+          {
+            path: 'status',
+            component: DaemonStatusComponent
+          }
+        ]
       }
-      /* define app module routes here, e.g., to lazily load a module
-       (do not place feature module routes here, use an own -routing.module.ts in the feature instead)
-       */
-      // { path: '', component: HomeComponent },
-      // { path: 'callback', component: CallbackComponent },
-      // { path: '**', redirectTo: '' }
+
+
     ])
   ],
   exports: [RouterModule]

@@ -7,6 +7,7 @@ import {HttpModule} from '@angular/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DaemonComponent} from './daemon.component';
 import {DaemonRouterModule} from './daemon-routing.module';
+import { DaemonStatusComponent } from './daemon-status/daemon-status.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {DaemonRouterModule} from './daemon-routing.module';
   ],
   declarations: [
     DaemonComponent,
+    DaemonStatusComponent,
   ],
   exports: [DaemonComponent]
 })
