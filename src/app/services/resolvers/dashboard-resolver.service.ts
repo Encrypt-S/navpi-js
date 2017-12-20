@@ -21,6 +21,11 @@ export class DashboardResolverService implements Resolve<any>{
         observer.next();
         observer.complete();
 
+      }).catch((e) => {
+
+        debugger
+        console.log('sdf');
+
       });
 
 

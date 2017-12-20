@@ -10,6 +10,7 @@ import {CoreService} from './services/core/core.service';
 import {DashboardResolverService} from './services/resolvers/dashboard-resolver.service';
 import {DataService} from './services/data/data.service';
 import {TickerService} from './services/ticker/ticker.service';
+import {DaemonModule} from './daemon/daemon.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {TickerService} from './services/ticker/ticker.service';
     // Application Modules
     DashboardModule,
     WalletModule,
+    DaemonModule,
 
     AppRoutingModule
   ],
