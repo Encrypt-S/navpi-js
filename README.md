@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Make sure you have docker installed, This image will auto reload
 
 Build the image: 
-`docker build -t navpi-js-dev .`
+`docker build -f dev.Dockerfile -t navpi-js-dev .`
 
 Run the container: 
 `docker run -it --rm -p 4200:4200 -v ${pwd}/src:/app/src navpi-js-dev`
