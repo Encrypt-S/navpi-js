@@ -16,12 +16,12 @@ export class DaemonService {
     try {
       await this._walletService.getStakingReport();
       this.isResponding = true;
-      return true;
 
     } catch (e) {
       this.isResponding = false;
-      return false;
     }
+
+    return this.isResponding;
 
   }
 
