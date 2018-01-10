@@ -20,9 +20,16 @@ export class WalletService {
   async getStakingReport() {
     const path = `${this._coreService.apiServerPath}/wallet/v1/getstakereport`;
 
-    const json =  await this._http.get(path).map((res) => res.json()).toPromise();
+    try {
+      const json =  await this._http.get(path).map((res) => res.json()).toPromise();
+      this._dataService.stakingData = parseStakingReport(json);
 
-    this._dataService.stakingData = parseStakingReport(json);
+    } catch (e) {
+
+      throw new Error('Error getting stake report');
+
+    }
+
 
     return this._dataService.stakingData;
 
