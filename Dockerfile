@@ -9,7 +9,7 @@ COPY yarn.lock /app/
 RUN apk update && apk upgrade && \
     apk add --no-cache bash git openssh
 
-RUN yarn
+RUN npm i
 
 COPY . /app
 

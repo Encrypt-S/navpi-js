@@ -1,2 +1,2 @@
-yarn
+npm i
 npm rebuild node-sass
