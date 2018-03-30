@@ -5,24 +5,24 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Development Setup - DOCKER
 Make sure you have docker installed, and are in the NavPi JS directory. This image will auto reload
 
-####Build the image: 
-`docker build -f dev.Dockerfile -t navpi-js-dev .`
+#### Build the image: 
+`docker build -t navpi-js-dev .`
 
-####Run the container:
+#### Run the container:
 `docker run -it -p 4200:4200 -v ${pwd}:/app navpi-js-dev`
 
 Please note: The –v volume mapping means that changes on the host and these are immediately available inside the Docker container. Open [http://localhost:4200](http://localhost:4200) 
 
-####Install the dependencies: 
+#### Install the dependencies: 
 `./dev-prep.sh`
 
 ## Development Process - DOCKER
-####Run the container: 
+#### Run the container: 
 If the container is not running then start it
 
 `docker run -it -p 4200:4200 -v ${pwd}:/app navpi-js-dev`
 
-####Start the server
+#### Start the server
 `./dev-start.sh`
 
 The site will be avaible on [http://localhost:4200](http://localhost:4200)

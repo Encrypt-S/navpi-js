@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  navpi-js:
+    build:
+        context: .
+    ports:
+      - 4200:4200
+    volumes:
+      - .:/app
+    expose:
+      - "4200"
+    command:
+      - "./dev-start.sh"
