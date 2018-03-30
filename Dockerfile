@@ -11,4 +11,6 @@ COPY . .
 
 RUN npm install -g @angular/cli
 
+RUN npm i
+
 ENTRYPOINT ["/bin/bash"]
