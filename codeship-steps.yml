@@ -2,6 +2,10 @@
   name: test_navpi-js
   steps:
     - service: navpi-js
+      command: npm i
+    - service: navpi-js
+      command: npm rebuild node-sass
+    - service: navpi-js
       command: ng test
 
 
