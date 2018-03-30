@@ -1,0 +1,19 @@
+- type: parallel
+  name: test_navpi-js
+  steps:
+    - service: navpi-js
+      command: ng test
+
+
+#storing this here for later
+#- type: parallel
+#  name: example_parallel_step
+#  steps:
+#    - service: codeship_example
+#      command: printenv
+#    - service: codeship_example
+#      command: ls
+#- name: example_tagged_step
+#  tag: master
+#  service: codeship_example
+#  command: echo "Deploy here!"
