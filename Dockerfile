@@ -7,7 +7,7 @@ RUN apk update
 RUN apk upgrade
 RUN apk add --no-cache bash git openssh
 
-COPY . app
+COPY . .
 
 RUN npm install -g @angular/cli
 
