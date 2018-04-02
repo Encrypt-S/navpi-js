@@ -26,8 +26,10 @@ export class DashboardResolverService implements Resolve<any>{
             observer.next();
             observer.complete();
           }else {
-            this._router.navigate(['daemon/status']);
-            observer.error('');
+            observer.next();
+            observer.complete();
+            //this._router.navigate(['daemon/status']);
+            // observer.error('');
           }
 
         }).catch((e) => {
