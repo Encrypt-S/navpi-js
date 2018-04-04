@@ -1,9 +1,6 @@
-
-
-
 <div>
-  <mat-card>
 
+  <mat-card>
 
     <form [formGroup]="loginForm"
           (ngSubmit)="onSubmit($event)"
@@ -22,7 +19,9 @@
       </mat-form-field>
 
       <button [disabled]="this.loginForm.invalid" mat-button>Login</button>
+
     </form>
 
   </mat-card>
+
 </div>
