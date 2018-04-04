@@ -1,16 +1,16 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
 import {CoreService} from '../core/core.service';
 import 'rxjs/add/operator/map';
 import {parseStakingReport} from '../parsers/staking-data.parser';
 import {DataService} from '../data/data.service';
+import {HttpClient} from '@angular/common/http';
 
 
 @Injectable()
 export class WalletService {
 
   constructor(
-    private _http: Http,
+    private _http: HttpClient,
     private _coreService: CoreService,
     private _dataService: DataService
   ) { }
@@ -20,7 +20,7 @@ export class WalletService {
     const path = `${this._coreService.apiServerPath}/wallet/v1/getstakereport`;
 
     try {
-      const json =  await this._http.get(path).map((res) => res.json()).toPromise();
+      const json =  await this._http.get(path).map((res) => res.json().results).toPromise();
       this._dataService.stakingData = parseStakingReport(json);
 
     } catch (e) {
