@@ -1,24 +1,21 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import {LoginVO} from './vo/login.vo';
 import {CoreService} from '../core/core.service';
 import {DataService} from '../data/data.service';
-
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class LoginService {
 
   constructor(
-    private _http: Http,
+    private _http: HttpClient,
     private _coreService: CoreService,
     private _dataServcie: DataService
   ) { }
 
-
   async handleLogin(loginVO: LoginVO) {
-    debugger;
 
     const path = `${this._coreService.apiServerPath}/user/v1/login`;
     try {
