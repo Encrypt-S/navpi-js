@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {WalletComponent} from './wallet.component';
 
-
 @NgModule({
   imports: [
     RouterModule.forChild([
