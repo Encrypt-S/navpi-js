@@ -1,18 +1,17 @@
 import {inject, TestBed} from '@angular/core/testing';
 
 import {WalletService} from './wallet.service';
-import {HttpModule} from '@angular/http';
 import {CoreServiceStub} from '../core/core.service.stub';
 import {CoreService} from '../core/core.service';
-import {StakingVo} from '../parsers/vo/staking.vo';
 import {DataService} from '../data/data.service';
 import {DataServiceStub} from '../data/data.service.stub';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('WalletService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        HttpModule
+        HttpClientModule
       ],
       providers: [
         WalletService,
