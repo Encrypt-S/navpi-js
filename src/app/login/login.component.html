@@ -1,0 +1,28 @@
+
+
+
+<div>
+  <mat-card>
+
+
+    <form [formGroup]="loginForm"
+          (ngSubmit)="onSubmit($event)"
+          class="example-form">
+
+      <mat-form-field>
+        <input matInput
+               formControlName="username"
+               placeholder="Username">
+      </mat-form-field>
+
+      <mat-form-field  class="example-full-width">
+        <input matInput
+               formControlName="password"
+               placeholder="Username" type="password">
+      </mat-form-field>
+
+      <button [disabled]="this.loginForm.invalid" mat-button>Login</button>
+    </form>
+
+  </mat-card>
+</div>
