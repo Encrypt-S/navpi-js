@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DaemonComponent } from './daemon.component';
+import {DaemonComponent} from './daemon.component';
 
 describe('DaemonComponent', () => {
   let component: DaemonComponent;

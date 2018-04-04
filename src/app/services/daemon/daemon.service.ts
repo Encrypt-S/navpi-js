@@ -10,7 +10,6 @@ export class DaemonService {
     private _walletService: WalletService
   ) { }
 
-
   async isDaemonResponding() {
 
     try {
