@@ -5,16 +5,16 @@ import {DashboardRoutingModule} from './dashboard-routing.module';
 import {SharedMaterialModule} from '../shared-ui/material/shared-material.module';
 import {SharedUIModule} from '../shared-ui/ui/shared-ui.module';
 import {NetworkStatusComponent} from './network-status/network-status.component';
-import {HttpModule} from '@angular/http';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpModule,
+    HttpClientModule,
     BrowserAnimationsModule,
 
     SharedMaterialModule,
