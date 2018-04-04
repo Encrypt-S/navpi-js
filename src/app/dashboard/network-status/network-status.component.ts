@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataService} from '../../services/data/data.service';
 import {StakingVo} from '../../services/parsers/vo/staking.vo';
 
@@ -7,8 +7,8 @@ import {StakingVo} from '../../services/parsers/vo/staking.vo';
   templateUrl: './network-status.component.html',
   styleUrls: ['./network-status.component.scss']
 })
-export class NetworkStatusComponent implements OnInit {
 
+export class NetworkStatusComponent implements OnInit {
 
   single: any[];
   multi: any[];
@@ -48,8 +48,6 @@ export class NetworkStatusComponent implements OnInit {
     this.graph = [{name: 'Staking Rewards', series: this.stakingData.graph.reverse()}];
 
   }
-
-
 
   get stakingData(): StakingVo {
     return this._dataService.stakingData;
