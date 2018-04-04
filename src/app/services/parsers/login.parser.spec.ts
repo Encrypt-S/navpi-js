@@ -1,6 +1,3 @@
-
-
-
 import {parseTicker} from './ticker.parser';
 
 describe('Ticker Data Parser', () => {

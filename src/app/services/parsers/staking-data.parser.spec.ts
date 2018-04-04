@@ -1,5 +1,3 @@
-
-
 import {parseStakingReport} from './staking-data.parser';
 
 describe('Staking Data Parser', () => {
