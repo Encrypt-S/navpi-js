@@ -15,7 +15,6 @@ export class WalletService {
     private _dataService: DataService
   ) { }
 
-
   async getStakingReport() {
     const path = `${this._coreService.apiServerPath}/wallet/v1/getstakereport`;
 
