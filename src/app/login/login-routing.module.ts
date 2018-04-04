@@ -11,8 +11,6 @@ import {LoginComponent} from './login.component';
         component: LoginComponent,
       },
 
-
-
     ])
   ],
   exports: [RouterModule]
