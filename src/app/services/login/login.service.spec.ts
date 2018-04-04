@@ -1,7 +1,7 @@
 import {inject, TestBed} from '@angular/core/testing';
 
 import {LoginService} from './login.service';
-import {HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 import {CoreServiceStub} from '../core/core.service.stub';
 import {CoreService} from '../core/core.service';
 import {DataService} from '../data/data.service';
@@ -11,7 +11,7 @@ describe('LoginService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        HttpModule
+        HttpClientModule
       ],
       providers: [
         LoginService,
