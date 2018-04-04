@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from '../../services/data/data.service';
-import {StakingVO} from '../../services/parsers/vo/staking.vo';
+import {StakingVo} from '../../services/parsers/vo/staking.vo';
 
 @Component({
   selector: 'app-network-status',
@@ -51,7 +51,7 @@ export class NetworkStatusComponent implements OnInit {
 
 
 
-  get stakingData(): StakingVO {
+  get stakingData(): StakingVo {
     return this._dataService.stakingData;
   }
 

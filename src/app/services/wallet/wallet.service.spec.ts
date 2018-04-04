@@ -4,7 +4,7 @@ import {WalletService} from './wallet.service';
 import {HttpModule} from '@angular/http';
 import {CoreServiceStub} from '../core/core.service.stub';
 import {CoreService} from '../core/core.service';
-import {StakingVO} from '../parsers/vo/staking.vo';
+import {StakingVo} from '../parsers/vo/staking.vo';
 import {DataService} from '../data/data.service';
 import {DataServiceStub} from '../data/data.service.stub';
 

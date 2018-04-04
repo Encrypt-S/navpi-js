@@ -1,34 +1,27 @@
-
-
-
-import {TickerVO} from './vo/ticker.vo';
+import {TickerVo} from './vo/ticker.vo';
 
 export function parseTicker(rawJSON: any) {
 
-
-
   const d = rawJSON[0];
 
+  let model = {} as TickerVo;
 
-  let vo = {} as TickerVO;
+  model.id = d.id;
+  model.name = d.name;
+  model.symbol = d.symbol;
+  model.rank = parseInt(d.rank, 10);
+  model.priceUSD = parseFloat(d.price_usd);
+  model.priceBTC = parseFloat(d.price_btc);
+  model.priceBTC = parseFloat(d.price_btc);
+  model.volume24Hour = parseFloat(d['24h_volume_usd']);
+  model.marketCapUSD = parseFloat(d['market_cap_usd']);
+  model.availableSupply = parseFloat(d['available_supply']);
+  model.totalSupply = parseFloat(d['total_supply']);
+  model.percentChange1h = parseFloat(d['percent_change_1h']);
+  model.percentChange7d = parseFloat(d['percent_change_7d']);
+  model.percentChange24h = parseFloat(d['percent_change_24h']);
+  model.lastUpdated = parseInt(d['last_updated'], 10);
 
-  vo.id = d.id;
-  vo.name = d.name;
-  vo.symbol = d.symbol;
-  vo.rank = parseInt(d.rank, 10);
-  vo.priceUSD = parseFloat(d.price_usd);
-  vo.priceBTC = parseFloat(d.price_btc);
-  vo.priceBTC = parseFloat(d.price_btc);
-  vo.volume24Hour = parseFloat(d['24h_volume_usd']);
-  vo.marketCapUSD = parseFloat(d['market_cap_usd']);
-  vo.availableSupply = parseFloat(d['available_supply']);
-  vo.totalSupply = parseFloat(d['total_supply']);
-  vo.percentChange1h = parseFloat(d['percent_change_1h']);
-  vo.percentChange7d = parseFloat(d['percent_change_7d']);
-  vo.percentChange24h = parseFloat(d['percent_change_24h']);
-  vo.lastUpdated = parseInt(d['last_updated'], 10);
-
-  return vo;
-
+  return model;
 
 }

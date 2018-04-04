@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import {CoreService} from '../core/core.service';
 import 'rxjs/add/operator/map';
-import {StakingVO} from '../parsers/vo/staking.vo';
 import {parseStakingReport} from '../parsers/staking-data.parser';
 import {DataService} from '../data/data.service';
 
