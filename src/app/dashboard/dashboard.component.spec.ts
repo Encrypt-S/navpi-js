@@ -6,6 +6,8 @@ import {ScoreCardMockComponent} from '../shared-ui/ui/components/scorecard/mock/
 import {MatCardModule} from '@angular/material';
 import {HeaderMockComponent} from '../shared-ui/ui/components/header/mocks/header.component.mock';
 import {NetworkStatusMockComponent} from './network-status/mock/network-status.mock.component';
+import {TickerServiceStub} from "../services/ticker/ticker.service.stub";
+import {TickerService} from "../services/ticker/ticker.service";
 
 
 describe('DashboardComponent', () => {
@@ -18,7 +20,7 @@ describe('DashboardComponent', () => {
         MatCardModule,
       ],
       providers: [
-
+        {provide: TickerService, useClass: TickerServiceStub},
       ],
       declarations: [
         DashboardComponent,
