@@ -1,39 +1,27 @@
-import {Injectable} from '@angular/core';
 import {CoreService} from '../core/core.service';
-import 'rxjs/add/operator/map';
-import {parseStakingReport} from '../parsers/staking-data.parser';
 import {DataService} from '../data/data.service';
 import {HttpClient} from '@angular/common/http';
+import {StakingVo} from '../parsers/vo/staking.vo';
+import {parseStakingReport} from '../parsers/staking-data.parser';
 
-
-@Injectable()
 export class WalletService {
 
   constructor(
-    private _http: HttpClient,
+    private _httpClient: HttpClient,
     private _coreService: CoreService,
-    private _dataService: DataService
+    private _dataService: DataService,
   ) { }
 
-  async getStakingReport() {
-    const path = `${this._coreService.apiServerPath}/wallet/v1/getstakereport`;
+  async getStakingReport(): Promise<StakingVo> {
 
-    try {
-      const json =  await this._http.get(path).map((res) => res.json().results).toPromise();
-      this._dataService.stakingData = parseStakingReport(json);
+    const reportPath = `${this._coreService.apiServerPath}/wallet/v1/getstakereport`;
 
-    } catch (e) {
+    const response = await this._httpClient.get(reportPath).toPromise();
 
-      throw new Error('Error getting stake report');
-
-    }
-
+    this._dataService.stakingData = parseStakingReport(response);
 
     return this._dataService.stakingData;
 
-
   }
-
-
 
 }

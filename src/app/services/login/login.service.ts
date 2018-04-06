@@ -10,30 +10,22 @@ import {HttpClient} from '@angular/common/http';
 export class LoginService {
 
   constructor(
-    private _http: HttpClient,
+    private _httpClient: HttpClient,
     private _coreService: CoreService,
-    private _dataServcie: DataService
+    private _dataService: DataService,
   ) { }
 
   async handleLogin(loginVO: LoginVO) {
 
-    const path = `${this._coreService.apiServerPath}/user/v1/login`;
-    try {
-      const json =  await this._http.post(path, loginVO).map((res) => res.json()).toPromise();
-      // this._dataServcie.jwtToken =  //parsed oken
+    const loginPath = `${this._coreService.apiServerPath}/user/v1/login`;
 
-    } catch (e) {
+    const response = await this._httpClient.post(loginPath, loginVO).toPromise();
 
-      throw new Error('Error getting stake report');
+    // TODO: parsed token...
+    // this._dataServcie.jwtToken = ...
 
-    }
-
-    //
-    // return this._dataService.stakingData;
-
+    return response;
 
   }
-
-
 
 }

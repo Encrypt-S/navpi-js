@@ -1,7 +1,7 @@
 import {Staking30DayVO, StakingVo} from './vo/staking.vo';
 import {DatePipe} from '@angular/common';
 
-export function  parseStakingReport(rawReportJSON: any): StakingVo {
+export function parseStakingReport(rawReportJSON: any): StakingVo {
 
   const stakingData: StakingVo = {} as StakingVo;
   const stakingGraph: Staking30DayVO[] = [];
