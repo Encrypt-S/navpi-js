@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class DaemonServiceStub {
@@ -12,7 +13,7 @@ export class DaemonServiceStub {
 
   isDaemonResponding() {
 
-    return this.isResponding;
+    return new Observable().toPromise();
 
   }
 
