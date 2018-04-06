@@ -2,30 +2,28 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {SharedMaterialModule} from '../shared-ui/material/shared-material.module';
 import {SharedUIModule} from '../shared-ui/ui/shared-ui.module';
-import {HttpModule} from '@angular/http';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {DaemonComponent} from './daemon.component';
-import {DaemonRouterModule} from './daemon-routing.module';
-import {DaemonStatusComponent} from './daemon-status/daemon-status.component';
+import {LoginRoutingModule} from './login-routing.module';
+import {LoginComponent} from './login.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpModule,
+    ReactiveFormsModule,
+
     BrowserAnimationsModule,
 
     SharedMaterialModule,
     SharedUIModule,
 
-
-    DaemonRouterModule
+    LoginRoutingModule
   ],
   declarations: [
-    DaemonComponent,
-    DaemonStatusComponent,
+    LoginComponent
   ],
-  exports: [DaemonComponent]
+  exports: [LoginComponent]
 })
-export class DaemonModule { }
+export class LoginModule { }

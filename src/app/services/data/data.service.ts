@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
-import {StakingVO} from '../parsers/vo/staking.vo';
+import {Injectable} from '@angular/core';
+import {StakingVo} from '../parsers/vo/staking.vo';
 
 @Injectable()
 export class DataService {
 
   constructor() { }
 
-
-  stakingData: StakingVO;
+  jwtToken: string;
+  stakingData: StakingVo;
 
 
 }

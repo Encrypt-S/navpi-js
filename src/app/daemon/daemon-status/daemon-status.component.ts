@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DaemonService} from '../../services/daemon/daemon.service';
 
 @Component({
@@ -6,8 +6,8 @@ import {DaemonService} from '../../services/daemon/daemon.service';
   templateUrl: './daemon-status.component.html',
   styleUrls: ['./daemon-status.component.scss']
 })
-export class DaemonStatusComponent implements OnInit {
 
+export class DaemonStatusComponent implements OnInit {
 
   isResponding: Boolean;
 

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {WalletService} from '../wallet/wallet.service';
 
 @Injectable()
@@ -9,7 +9,6 @@ export class DaemonService {
   constructor(
     private _walletService: WalletService
   ) { }
-
 
   async isDaemonResponding() {
 

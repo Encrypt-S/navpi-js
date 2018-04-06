@@ -2,9 +2,8 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HeaderComponent} from './components/header/header.component';
 import {SharedMaterialModule} from '../material/shared-material.module';
-import { ScorecardComponent } from './components/scorecard/scorecard.component';
+import {ScorecardComponent} from './components/scorecard/scorecard.component';
 import {SweetAlert2Module} from '@toverux/ngx-sweetalert2';
-
 
 
 @NgModule({
@@ -23,7 +22,8 @@ import {SweetAlert2Module} from '@toverux/ngx-sweetalert2';
 
   exports: [
     HeaderComponent,
-    ScorecardComponent
+    ScorecardComponent,
+
   ]
 })
 export class SharedUIModule { }

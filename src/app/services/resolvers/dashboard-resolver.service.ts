@@ -19,6 +19,11 @@ export class DashboardResolverService implements Resolve<any>{
     return new Observable((observer: Subscriber<any>) => {
 
 
+      observer.next();
+      observer.complete();
+
+      /*
+
       // first check to see that the daemon service is operational
       this._daemonsService.isDaemonResponding()
         .then((responding: boolean) => {
@@ -26,10 +31,10 @@ export class DashboardResolverService implements Resolve<any>{
             observer.next();
             observer.complete();
           }else {
-            observer.next();
-            observer.complete();
-            //this._router.navigate(['daemon/status']);
-            // observer.error('');
+            // observer.next();
+            // observer.complete();
+            this._router.navigate(['daemon/status']);
+            observer.error('');
           }
 
         }).catch((e) => {
@@ -37,9 +42,10 @@ export class DashboardResolverService implements Resolve<any>{
           observer.error('');
 
         });
+        */
 
 
-      // this._walletService.getStakingReport().then((d) => {
+      // this._walletService.handleLogin().then((d) => {
       //
       //   observer.next();
       //   observer.complete();

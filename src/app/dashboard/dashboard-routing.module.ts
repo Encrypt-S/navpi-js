@@ -15,7 +15,9 @@ import {DashboardResolverService} from '../services/resolvers/dashboard-resolver
           dashResolve: DashboardResolverService
         }
         // canActivate: [AuthGuard],
-      }
+      },
+
+
 
     ])
   ],

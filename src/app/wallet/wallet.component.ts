@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {WalletService} from '../services/wallet/wallet.service';
+import {StakingVo} from '../services/parsers/vo/staking.vo';
 
 @Component({
   selector: 'app-wallet',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WalletComponent implements OnInit {
 
-  constructor() { }
+  stakeReport: StakingVo;
 
-  ngOnInit() {
+  constructor(
+    private _walletService: WalletService
+  ) { }
+
+  async ngOnInit() {
+    this.stakeReport = await this._walletService.getStakingReport();
   }
 
 }

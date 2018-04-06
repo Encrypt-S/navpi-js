@@ -1,8 +1,5 @@
-export interface StakingVO {
-
-
+export interface StakingVo {
   graph: Staking30DayVO[];
-
   last24Hour: number;
   last7Days: number;
   last30Days: number;
@@ -11,13 +8,9 @@ export interface StakingVO {
   latestTime: Date;
   stakeCounted: number;
   timeTaken: number;
-
 }
 
-
 export interface Staking30DayVO {
-
   name: string;
   value: number;
-
 }

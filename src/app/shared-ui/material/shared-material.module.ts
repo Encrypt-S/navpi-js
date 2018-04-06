@@ -5,6 +5,7 @@ import {
   MatButtonModule,
   MatCardModule,
   MatCheckboxModule,
+  MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
@@ -23,7 +24,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
 
     FlexLayoutModule,
-
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
@@ -33,6 +33,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatInputModule,
     MatTooltipModule,
     MatCardModule,
+    MatDialogModule
 
   ],
   declarations: [
@@ -55,7 +56,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatCheckboxModule,
     MatInputModule,
     MatTooltipModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
 
   ]
 })

@@ -1,7 +1,4 @@
-
-
-
-export interface TickerVO {
+export interface TickerVo {
   id: string;
   name: string;
   symbol: string;
@@ -12,10 +9,8 @@ export interface TickerVO {
   marketCapUSD: number;
   availableSupply: number;
   totalSupply: number;
-
   percentChange1h: number;
   percentChange24h: number;
   percentChange7d: number;
   lastUpdated: number;
-
 }

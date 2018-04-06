@@ -12,6 +12,8 @@ import {DataService} from './services/data/data.service';
 import {TickerService} from './services/ticker/ticker.service';
 import {DaemonModule} from './daemon/daemon.module';
 import {DaemonService} from './services/daemon/daemon.service';
+import {LoginModule} from './login/login.module';
+import {LoginService} from './services/login/login.service';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import {DaemonService} from './services/daemon/daemon.service';
     DashboardModule,
     WalletModule,
     DaemonModule,
+    LoginModule,
 
     AppRoutingModule
   ],
@@ -33,6 +36,7 @@ import {DaemonService} from './services/daemon/daemon.service';
     CoreService,
     WalletService,
     DaemonService,
+    LoginService,
 
     DataService,
     TickerService,

@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import {StakingVO} from '../parsers/vo/staking.vo';
+import {StakingVo} from '../parsers/vo/staking.vo';
 
 @Injectable()
 export class DataServiceStub {
 
-  stakingData: StakingVO;
+  stakingData: StakingVo;
 
   constructor() {
 
-    this.stakingData = {} as StakingVO;
+    this.stakingData = {} as StakingVo;
     this.stakingData.graph = [];
 
   }

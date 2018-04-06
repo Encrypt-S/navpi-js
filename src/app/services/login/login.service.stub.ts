@@ -1,14 +1,13 @@
 import {Injectable} from '@angular/core';
-import 'rxjs/add/operator/map';
 
 @Injectable()
-export class WalletServiceStub {
+export class LoginServiceStub {
 
   constructor(
 
   ) { }
 
-  getStakingReport() {
+  handleLogin() {
     return true;
   }
 
