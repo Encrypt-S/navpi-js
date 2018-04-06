@@ -28,12 +28,9 @@ export class LoginComponent implements OnInit {
 
   }
 
-  onSubmit($event) {
-    if ($event == null) {
-      return;
-    }else {
-      $event.preventDefault();
-    }
+  onSubmit($event: Event) {
+
+    if ($event == null) { return; } else {$event.preventDefault();}
 
     const loginVO: LoginVO = {} as LoginVO;
           loginVO.username = this.usernameFormCtrl.value.toString();
