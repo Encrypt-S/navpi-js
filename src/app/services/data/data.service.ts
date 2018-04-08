@@ -1,12 +1,14 @@
 import {Injectable} from '@angular/core';
 import {StakingVo} from '../parsers/vo/staking.vo';
+import {UserVo} from "../parsers/vo/user.vo";
 
 @Injectable()
 export class DataService {
 
   constructor() { }
 
-  jwtToken: string;
+  userData: UserVo;
+  
   stakingData: StakingVo;
 
 
