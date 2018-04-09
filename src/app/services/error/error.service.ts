@@ -22,7 +22,7 @@ export class ErrorService {
 
     const err: any = errors.errors[0];
 
-    let rtnErr: IAppError;
+    let rtnErr: any;
 
     case switch (err.code) {
       case LoginError.code:
