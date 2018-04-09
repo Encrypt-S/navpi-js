@@ -13,17 +13,17 @@ export class LoginService {
 
   constructor(
     private _httpClient: HttpClient,
-    private _coreService: CoreService,
-    private _dataService: DataService,
+    public coreService: CoreService,
+    public dataService: DataService,
   ) { }
 
   async handleLogin(loginVO: LoginVO) {
 
-    const loginPath = `${this._coreService.apiServerPath}api/user/v1/login`;
+    const loginPath = `${this.coreService.apiServerPath}api/user/v1/login`;
 
     const response = await this._httpClient.post(loginPath, loginVO).toPromise();
 
-    this._dataService.userData = loginParser(response);
+    this.dataService.userData = loginParser(response);
 
     return response;
 
