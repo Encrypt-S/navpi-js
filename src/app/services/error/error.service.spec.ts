@@ -2,12 +2,13 @@ import {inject, TestBed} from '@angular/core/testing';
 
 import {ErrorService} from './error.service';
 import {MatSnackBarModule, MatSnackBarModule} from "@angular/material";
+import {SharedMaterialModule} from "../../shared-ui/material/shared-material.module";
 
 describe('ErrorService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        MatSnackBarModule,
+        SharedMaterialModule,
       ],
       providers: [ErrorService]
     });
