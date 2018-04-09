@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpErrorResponse} from '@angular/common/http';
 import {MatSnackBar} from '@angular/material';
-import * as  _ from 'lodash';
-import {AppError, appErrors, IError} from './app-error';
+import {LoginError} from './errors/login-error';
+import {IAppError} from './app-error.interface';
 
 
 @Injectable()
@@ -18,14 +18,20 @@ export class ErrorService {
   }
 
 
-  getError(errors: any) {
+  getError(errors: any): IAppError {
 
-    let err: any = errors[0];
-    const error: IError = appErrors[err.code] as IError;
+    const err: any = errors.errors[0];
 
-    const appError = new AppError(error);
+    let rtnErr: IAppError;
 
-    return appError;
+    case switch (err.code) {
+      case LoginError.code:
+        rtnErr = LoginError;
+        break;
+    }
+
+    return rtnErr;
+
   }
 
 

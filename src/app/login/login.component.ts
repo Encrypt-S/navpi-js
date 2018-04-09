@@ -5,6 +5,8 @@ import {LoginService} from '../services/login/login.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {ErrorService} from '../services/error/error.service';
 import {AppError, appErrors} from '../services/error/app-error';
+import {IAppError} from '../services/error/app-error.interface';
+import {LoginError} from '../services/error/errors/login-error';
 
 @Component({
   selector: 'app-login',
@@ -45,8 +47,13 @@ export class LoginComponent implements OnInit {
     try {
 
       await  this._loginService.handleLogin(loginVO);
+
     } catch (e: HttpErrorResponse) {
-      const err: AppError = this._errorService.getError(e.error);
+
+      const err: IAppError = this._errorService.getError(e.error);
+      if (err.code === LoginError.code) {
+        console.log("showlogin error")
+      }
 
     }
 
