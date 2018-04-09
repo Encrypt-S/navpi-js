@@ -9,7 +9,7 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatMenuModule,
+  MatMenuModule, MatSnackBarModule,
   MatToolbarModule,
   MatTooltipModule
 } from '@angular/material';
@@ -33,7 +33,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatInputModule,
     MatTooltipModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule,
 
   ],
   declarations: [
