@@ -1,6 +1,5 @@
-
-import {UserVo} from "./vo/user.vo";
-import {loginParser} from "./login.parser";
+import {UserVo} from './vo/user.vo';
+import {loginParser} from './login.parser';
 
 describe('Login Token parser', () => {
 

@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {DataService} from '../../../services/data/data.service';
-import {StakingVo} from '../../../services/parsers/vo/staking.vo';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-network-status',

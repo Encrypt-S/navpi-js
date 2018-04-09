@@ -4,8 +4,8 @@ import 'rxjs/add/operator/map';
 import {LoginVO} from './vo/login.vo';
 import {CoreService} from '../core/core.service';
 import {DataService} from '../data/data.service';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {loginParser} from "../parsers/login.parser";
+import {HttpClient} from '@angular/common/http';
+import {loginParser} from '../parsers/login.parser';
 
 
 @Injectable()

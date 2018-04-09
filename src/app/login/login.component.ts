@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {LoginVO} from '../services/login/vo/login.vo';
 import {LoginService} from '../services/login/login.service';
-import {HttpErrorResponse} from '@angular/common/http';
 import {ErrorService} from '../services/error/error.service';
 import {IAppError} from '../services/error/app-error.interface';
 import {LoginError} from '../services/error/errors/login-error';

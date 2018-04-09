@@ -1,4 +1,4 @@
-import {UserVo} from "./vo/user.vo";
+import {UserVo} from './vo/user.vo';
 
 export function loginParser(rawReportJSON: any): UserVo {
 
