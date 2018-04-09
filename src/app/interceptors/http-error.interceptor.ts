@@ -20,7 +20,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
 
         // There was an issue with calling the http request
         if (err.status === 0) {
-          this._errorService.UnknownHTTPError(err);
+          this._errorService.unknownHTTPError(err);
         }
       }
     });
