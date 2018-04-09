@@ -18,6 +18,9 @@ export class LoginComponent implements OnInit {
   usernameFormCtrl: FormControl;
   passwordFormCtrl: FormControl;
 
+  showLoginError: boolean;
+  errorMsg: string;
+
   constructor(
     private _loginService: LoginService,
     private _errorService: ErrorService
@@ -38,9 +41,13 @@ export class LoginComponent implements OnInit {
 
     if ($event == null) { return; } else {$event.preventDefault();}
 
+    //reset the form state
+    this.showLoginError = false;
+
     const loginVO: LoginVO = {} as LoginVO;
-          loginVO.username = this.usernameFormCtrl.value.toString();
-          loginVO.password = this.passwordFormCtrl.value.toString();
+
+      loginVO.username = this.usernameFormCtrl.value.toString();
+      loginVO.password = this.passwordFormCtrl.value.toString();
 
     try {
 
@@ -50,7 +57,9 @@ export class LoginComponent implements OnInit {
 
       const err: IAppError = this._errorService.getError(e.error);
       if (err.code === LoginError.code) {
-        console.log("showlogin error");
+
+        this.showLoginError = true;
+        this.errorMsg = err.message;
       }
 
     }

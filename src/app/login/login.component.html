@@ -15,17 +15,18 @@
                    placeholder="Username">
           </mat-form-field>
 
-          <mat-form-field  class="example-full-width">
+          <mat-form-field>
             <input matInput
                    formControlName="password"
                    placeholder="Password" type="password">
           </mat-form-field>
 
-          <div style="color: crimson">
-            im the error
+          <div *ngIf="showLoginError" style="color: crimson;">
+            <p>{{errorMsg}}</p>
           </div>
 
           <button [disabled]="this.loginForm.invalid" mat-button>Login</button>
+
         </div>
 
       </form>
