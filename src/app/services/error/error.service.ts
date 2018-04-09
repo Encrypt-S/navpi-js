@@ -3,6 +3,7 @@ import {HttpErrorResponse} from '@angular/common/http';
 import {MatSnackBar} from '@angular/material';
 import {LoginError} from './errors/login-error';
 import {IAppError} from './app-error.interface';
+import {UserVo} from '../parsers/vo/user.vo';
 
 
 @Injectable()
@@ -22,9 +23,9 @@ export class ErrorService {
 
     const err: any = errors.errors[0];
 
-    let rtnErr: any;
+    let rtnErr: IAppError;
 
-    case switch (err.code) {
+    switch (err.code) {
       case LoginError.code:
         rtnErr = LoginError;
         break;
