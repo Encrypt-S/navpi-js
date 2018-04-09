@@ -5,6 +5,8 @@ import {LoginServiceStub} from '../services/login/login.service.stub';
 import {LoginService} from '../services/login/login.service';
 import {ReactiveFormsModule} from '@angular/forms';
 import {SharedMaterialModule} from '../shared-ui/material/shared-material.module';
+import {ErrorService} from "../services/error/error.service";
+import {ErrorServiceStub} from "../services/error/error.service.stub";
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -17,7 +19,8 @@ describe('LoginComponent', () => {
         SharedMaterialModule,
       ],
       providers: [
-        {provide: LoginService, useClass: LoginServiceStub}
+        {provide: LoginService, useClass: LoginServiceStub},
+        {provide: ErrorService, useClass: ErrorServiceStub}
       ],
       declarations: [ LoginComponent ]
     })
