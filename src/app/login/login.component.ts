@@ -1,10 +1,12 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {LoginVO} from '../services/login/vo/login.vo';
 import {LoginService} from '../services/login/login.service';
 import {ErrorService} from '../services/error/error.service';
 import {IAppError} from '../services/error/app-error.interface';
 import {LoginError} from '../services/error/errors/login-error';
+
 
 @Component({
   selector: 'app-login',
@@ -23,7 +25,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private _loginService: LoginService,
-    private _errorService: ErrorService
+    private _errorService: ErrorService,
+    private _router: Router
   ) {}
 
   ngOnInit() {
@@ -52,6 +55,7 @@ export class LoginComponent implements OnInit {
     try {
 
       await  this._loginService.handleLogin(loginVO);
+      return this._router.navigate(['dashboard'])
 
     } catch (e) {
 
