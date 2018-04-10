@@ -61,7 +61,7 @@ describe('AuthGuard', () => {
   ));
 
 
-  it('should activate if user is not authenticated',
+  it('should activate if user is authenticated',
     async(inject([AuthGuard], (guard: AuthGuard) => {
         authed = true;
         expect(guard.canActivate(null, null)).toBeTruthy();
