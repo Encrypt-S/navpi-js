@@ -7,7 +7,7 @@ export class DataService {
 
   constructor() { }
 
-  userData: AuthModel;
+  authData: AuthModel;
 
   stakingData: StakingModel;
 
