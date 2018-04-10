@@ -42,4 +42,10 @@ describe('DashboardComponent', () => {
   it('should be created', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have the application header', async(() => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('app-header')).not.toBe(null);
+  }));
+
 });
