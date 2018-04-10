@@ -45,7 +45,7 @@ export class DashboardResolverService implements Resolve<any>{
         */
 
 
-      // this._walletService.handleLogin().then((d) => {
+      // this._walletService.authenticateUser().then((d) => {
       //
       //   observer.next();
       //   observer.complete();

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/map';
 
-import {LoginVO} from './vo/login.vo';
+import {AuthVO} from './vo/auth.vo';
 import {CoreService} from '../core/core.service';
 import {DataService} from '../data/data.service';
 import {HttpClient} from '@angular/common/http';
@@ -9,7 +9,7 @@ import {loginParser} from '../parsers/login.parser';
 
 
 @Injectable()
-export class LoginService {
+export class AuthService {
 
   constructor(
     private _httpClient: HttpClient,
@@ -17,7 +17,7 @@ export class LoginService {
     public dataService: DataService,
   ) { }
 
-  async handleLogin(loginVO: LoginVO) {
+  async authenticateUser(loginVO: AuthVO) {
 
     const loginPath = `${this.coreService.apiServerPath}api/user/v1/login`;
 
@@ -26,6 +26,11 @@ export class LoginService {
     this.dataService.userData = loginParser(response);
 
     return response;
+
+  }
+
+
+  isAuthenticated () {
 
   }
 

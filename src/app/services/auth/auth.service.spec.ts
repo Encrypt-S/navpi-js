@@ -1,12 +1,12 @@
 import {getTestBed, inject, TestBed} from '@angular/core/testing';
 
-import {LoginService} from './login.service';
+import {AuthService} from './auth.service';
 import {CoreService} from '../core/core.service';
 import {DataService} from '../data/data.service';
-import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
-import {LoginVO} from "./vo/login.vo";
+import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
+import {AuthVO} from './vo/auth.vo';
 
-describe('LoginService', () => {
+describe('AuthService', () => {
 
 
   let httpMock: HttpTestingController;
@@ -18,7 +18,7 @@ describe('LoginService', () => {
         HttpClientTestingModule
       ],
       providers: [
-        LoginService,
+        AuthService,
         DataService,
         CoreService
       ]
@@ -32,23 +32,23 @@ describe('LoginService', () => {
     httpMock.verify();
   });
 
-  it('should be created', inject([LoginService], (service: LoginService) => {
+  it('should be created', inject([AuthService], (service: AuthService) => {
     expect(service).toBeTruthy();
   }));
 
-  describe('handleLogin()', () => {
+  describe('authenticateUser()', () => {
 
-    it('should save the jwt', inject([LoginService], (service: LoginService) => {
+    it('should save the jwt', inject([AuthService], (service: AuthService) => {
 
       const dummyResp = { data: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MjMyNjMwNDl9.PyK66bYyE_Fn74kJOy0Z_b3qT7ob3TgJhBXlH-Roq1Q"};
 
       //build the login vo
-      const loginVO: LoginVO = {} as LoginVO;
+      const loginVO: AuthVO = {} as AuthVO;
       loginVO.username = 'user';
       loginVO.password = 'password';
 
       // call the service
-      service.handleLogin(loginVO).then((e) => {
+      service.authenticateUser(loginVO).then((e) => {
         expect(service.dataService.userData.JWTToken).toEqual(dummyResp.data);
       });
 

@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {LoginVO} from '../services/login/vo/login.vo';
-import {LoginService} from '../services/login/login.service';
+import {AuthVO} from '../services/auth/vo/auth.vo';
+import {AuthService} from '../services/auth/auth.service';
 import {ErrorService} from '../services/error/error.service';
 import {IAppError} from '../services/error/app-error.interface';
 import {LoginError} from '../services/error/errors/login-error';
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   errorMsg: string;
 
   constructor(
-    private _loginService: LoginService,
+    private _loginService: AuthService,
     private _errorService: ErrorService,
     private _router: Router
   ) {}
@@ -47,14 +47,14 @@ export class LoginComponent implements OnInit {
     //reset the form state
     this.showLoginError = false;
 
-    const loginVO: LoginVO = {} as LoginVO;
+    const loginVO: AuthVO = {} as AuthVO;
 
       loginVO.username = this.usernameFormCtrl.value.toString();
       loginVO.password = this.passwordFormCtrl.value.toString();
 
     try {
 
-      await  this._loginService.handleLogin(loginVO);
+      await  this._loginService.authenticateUser(loginVO);
       return this._router.navigate(['dashboard'])
 
     } catch (e) {

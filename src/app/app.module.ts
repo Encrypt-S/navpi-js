@@ -14,7 +14,7 @@ import {TickerService} from './services/ticker/ticker.service';
 import {DaemonModule} from './daemon/daemon.module';
 import {DaemonService} from './services/daemon/daemon.service';
 import {LoginModule} from './login/login.module';
-import {LoginService} from './services/login/login.service';
+import {AuthService} from './services/auth/auth.service';
 import {HttpErrorInterceptor} from './interceptors/http-error.interceptor';
 import {ErrorService} from './services/error/error.service';
 
@@ -39,7 +39,7 @@ import {ErrorService} from './services/error/error.service';
     CoreService,
     WalletService,
     DaemonService,
-    LoginService,
+    AuthService,
     ErrorService,
 
     DataService,
