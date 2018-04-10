@@ -7,7 +7,7 @@ import {DaemonService} from '../services/daemon/daemon.service';
 import {DaemonServiceStub} from '../services/daemon/daemon.service.stub';
 import {RouterTestingModule} from '@angular/router/testing';
 
-describe('DashboardResolverService', () => {
+describe('DashboardResolver', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -24,4 +24,5 @@ describe('DashboardResolverService', () => {
   it('should be created', inject([DashboardResolverService], (service: DashboardResolverService) => {
     expect(service).toBeTruthy();
   }));
+
 });
