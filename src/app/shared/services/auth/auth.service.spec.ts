@@ -6,6 +6,7 @@ import {DataService} from '../data/data.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {AuthVO} from './vo/auth.vo';
 import {AuthModel} from '../../models/auth.model';
+import {DataServiceStub} from "../data/data.service.stub";
 
 describe('AuthService', () => {
 
@@ -23,7 +24,7 @@ describe('AuthService', () => {
       ],
       providers: [
         AuthService,
-        DataService,
+        {provide: DataService, useClass: DataServiceStub},
         CoreService
       ]
     });
@@ -68,104 +69,8 @@ describe('AuthService', () => {
 
   describe('isAuthenticated()', () => {
 
-    describe('dataService authModel types', () => {
-
-      it('should NOT authenticate if data service is null', inject([AuthService], (service: AuthService) => {
-        service.dataService.authData = null;
-        expect(service.isAuthenticated()).toEqual(false);
-      }));
-
-      it('should NOT authenticate if authModel is a string', inject([AuthService], (service: AuthService) => {
-        service.dataService.authData = "";
-        expect(service.isAuthenticated()).toEqual(false);
-      }));
-
-      it('should NOT authenticate if authModel is a number', inject([AuthService], (service: AuthService) => {
-        service.dataService.authData = 234234;
-        expect(service.isAuthenticated()).toEqual(false);
-      }));
-
-      it('should NOT authenticate if authModel is true', inject([AuthService], (service: AuthService) => {
-        service.dataService.authData = true;
-        expect(service.isAuthenticated()).toEqual(false);
-      }));
-
-      it('should NOT authenticate if authModel is false', inject([AuthService], (service: AuthService) => {
-        service.dataService.authData = true;
-        expect(service.isAuthenticated()).toEqual(false);
-      }));
-
-      it('should NOT authenticate if authModel is an array', inject([AuthService], (service: AuthService) => {
-        service.dataService.authData = true;
-        expect(service.isAuthenticated()).toEqual(false);
-      }));
-
-
-      it('should NOT authenticate if authModel is an object', inject([AuthService], (service: AuthService) => {
-        service.dataService.authData = {};
-        expect(service.isAuthenticated()).toEqual(false);
-      }));
-
-    });
-
-    describe('authModel rawToken data types', () => {
-
-      it('should NOT authenticate if authModel rawToken undedined', inject([AuthService], (service: AuthService) => {
-        service.dataService.authData = {} as AuthModel;
-        expect(service.isAuthenticated()).toEqual(false);
-      }));
-
-
-      it('should NOT authenticate if authModel rawToken is an empty string', inject([AuthService], (service: AuthService) => {
-        service.dataService.authData = {} as AuthModel;
-        service.dataService.authData.rawToken = '';
-        expect(service.isAuthenticated()).toEqual(false);
-      }));
-
-      it('should NOT authenticate if authModel rawToken is a number', inject([AuthService], (service: AuthService) => {
-        service.dataService.authData = {} as AuthModel;
-        service.dataService.authData.rawToken = 33333;
-        expect(service.isAuthenticated()).toEqual(false);
-      }));
-
-      it('should NOT authenticate if authModel rawToken is true', inject([AuthService], (service: AuthService) => {
-        service.dataService.authData = {} as AuthModel;
-        service.dataService.authData.rawToken = true;
-        expect(service.isAuthenticated()).toEqual(false);
-      }));
-
-      it('should NOT authenticate if authModel rawToken is false', inject([AuthService], (service: AuthService) => {
-        service.dataService.authData = {} as AuthModel;
-        service.dataService.authData.rawToken = false;
-        expect(service.isAuthenticated()).toEqual(false);
-      }));
-
-      it('should NOT authenticate if authModel rawToken is an array', inject([AuthService], (service: AuthService) => {
-        service.dataService.authData = {} as AuthModel;
-        service.dataService.authData.rawToken = [];
-        expect(service.isAuthenticated()).toEqual(false);
-      }));
-
-      it('should NOT authenticate if authModel rawToken is an object', inject([AuthService], (service: AuthService) => {
-        service.dataService.authData = {} as AuthModel;
-        service.dataService.authData.rawToken = {};
-        expect(service.isAuthenticated()).toEqual(false);
-      }));
-
-    });
-
-
-
-    it('should NOT authenticate if authModel rawToken is empty string', inject([AuthService], (service: AuthService) => {
-      service.dataService.authData = {} as AuthModel;
-      service.dataService.authData.rawToken = '';
-      expect(service.isAuthenticated()).toEqual(false);
-    }));
-
-
-    it('should NOT authenticate if token is malformed', inject([AuthService], (service: AuthService) => {
-      service.dataService.authData = {} as AuthModel;
-      service.dataService.authData.rawToken = 'sadkfjhasdkfhjaskdjfh.asdkfjjhhasdkjfhaskdjf373.asdfasdfasdfasdf';
+    it('should NOT authenticate if data service is null', inject([AuthService], (service: AuthService) => {
+      service.dataService.authData = null;
       expect(service.isAuthenticated()).toEqual(false);
     }));
 
@@ -175,18 +80,29 @@ describe('AuthService', () => {
       expect(service.isAuthenticated()).toEqual(false);
     }));
 
-
     it('should authenticate if is valid', inject([AuthService], (service: AuthService) => {
       service.dataService.authData = {} as AuthModel;
       service.dataService.authData.rawToken = validTestToken;
       expect(service.isAuthenticated()).toEqual(true);
     }));
 
+    it('should NOT authenticate if authModel rawToken undedined', inject([AuthService], (service: AuthService) => {
+      service.dataService.authData = {} as AuthModel;
+      expect(service.isAuthenticated()).toEqual(false);
+    }));
 
+    it('should NOT authenticate if authModel rawToken is an empty string', inject([AuthService], (service: AuthService) => {
+      service.dataService.authData = {} as AuthModel;
+      service.dataService.authData.rawToken = '';
+      expect(service.isAuthenticated()).toEqual(false);
+    }));
+
+    it('should NOT authenticate if token is malformed', inject([AuthService], (service: AuthService) => {
+      service.dataService.authData = {} as AuthModel;
+      service.dataService.authData.rawToken = 'yJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJuYXZwaS0yLjAuMCIsImlhdCI6MTUyMzMzNzIxNiwiZXhwIjo5NTUzNDM2MjgsImF1ZCI6IiIsInN1YiI6IiJ9.OMNcjmpa1s4aWYpo5dylJ94zRqR01kvXuo6WLUOxF5E';
+      expect(service.isAuthenticated()).toEqual(false);
+    }));
 
   });
 
-
-
-
-  });
+});
