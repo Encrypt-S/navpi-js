@@ -47,7 +47,7 @@ describe('AuthGuard', () => {
   it('should NOT activate if user is not authenticated',
     async(inject([AuthGuard, Router], (guard: AuthGuard, router: Router) => {
         // add a spy
-        expect(guard.canActivate()).toBeFalsy();
+        expect(guard.canActivate(null, null)).toBeFalsy();
       })
     ));
 
@@ -55,16 +55,16 @@ describe('AuthGuard', () => {
     async(inject([AuthGuard, Router], (guard: AuthGuard, router: Router) => {
         // add a spy
         spyOn(router, 'navigate');
-        guard.canActivate();
+        guard.canActivate(null, null);
         expect(router.navigate).toHaveBeenCalledWith(['login']);
       })
   ));
 
 
   it('should activate if user is not authenticated',
-    async(inject([AuthGuard, Router], (guard: AuthGuard, router: Router) => {
+    async(inject([AuthGuard], (guard: AuthGuard) => {
         authed = true;
-        expect(guard.canActivate()).toBeTruthy();
+        expect(guard.canActivate(null, null)).toBeTruthy();
       })
     ));
 
