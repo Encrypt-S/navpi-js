@@ -1,13 +1,13 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {LoginComponent} from './login.component';
-import {AuthServiceStub} from '../../services/auth/auth.service.stub';
-import {AuthService} from '../../services/auth/auth.service';
 import {ReactiveFormsModule} from '@angular/forms';
 import {SharedMaterialModule} from '../../shared/components/material/shared-material.module';
-import {ErrorService} from "../../services/error/error.service";
-import {ErrorServiceStub} from "../../services/error/error.service.stub";
-import {RouterTestingModule} from "@angular/router/testing";
+import {RouterTestingModule} from '@angular/router/testing';
+import {AuthService} from '../../shared/services/auth/auth.service';
+import {AuthServiceStub} from '../../shared/services/auth/auth.service.stub';
+import {ErrorServiceStub} from '../../shared/services/error/error.service.stub';
+import {ErrorService} from '../../shared/services/error/error.service';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
