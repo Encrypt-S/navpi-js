@@ -1,5 +1,7 @@
 export interface AuthModel {
 
-  JWTToken: string;
+  rawToken: string;
+  decodedToken: any;
+  expDate: Date;
 
 }
