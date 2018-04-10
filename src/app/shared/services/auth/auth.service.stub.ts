@@ -7,8 +7,5 @@ export class AuthServiceStub {
 
   ) { }
 
-  handleLogin() {
-    return true;
-  }
 
 }
