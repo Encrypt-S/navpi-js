@@ -6,8 +6,9 @@ import {ScoreCardMockComponent} from '../ui/components/scorecard/mock/scorecard.
 import {MatCardModule} from '@angular/material';
 import {HeaderMockComponent} from '../ui/components/header/mocks/header.component.mock';
 import {NetworkStatusMockComponent} from './components/network-status/mock/network-status.mock.component';
-import {TickerServiceStub} from '../../services/ticker/ticker.service.stub';
-import {TickerService} from '../../services/ticker/ticker.service';
+import {TickerService} from '../../shared/services/ticker/ticker.service';
+import {TickerServiceStub} from '../../shared/services/ticker/ticker.service.stub';
+
 
 
 describe('DashboardComponent', () => {
