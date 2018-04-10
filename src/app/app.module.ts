@@ -4,19 +4,19 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import {DashboardModule} from './dashboard/dashboard.module';
-import {WalletModule} from './wallet/wallet.module';
-import {WalletService} from './services/wallet/wallet.service';
-import {CoreService} from './services/core/core.service';
-import {DashboardResolverService} from './services/resolvers/dashboard-resolver.service';
-import {DataService} from './services/data/data.service';
-import {TickerService} from './services/ticker/ticker.service';
-import {DaemonModule} from './daemon/daemon.module';
-import {DaemonService} from './services/daemon/daemon.service';
-import {LoginModule} from './login/login.module';
-import {AuthService} from './services/auth/auth.service';
-import {HttpErrorInterceptor} from './interceptors/http-error.interceptor';
-import {ErrorService} from './services/error/error.service';
+import {DashboardModule} from './modules/dashboard/dashboard.module';
+import {WalletModule} from './modules/wallet/wallet.module';
+import {DaemonModule} from './modules/daemon/daemon.module';
+import {LoginModule} from './modules/login/login.module';
+import {CoreService} from './shared/services/core/core.service';
+import {WalletService} from './shared/services/wallet/wallet.service';
+import {DaemonService} from './shared/services/daemon/daemon.service';
+import {AuthService} from './shared/services/auth/auth.service';
+import {ErrorService} from './shared/services/error/error.service';
+import {DataService} from './shared/services/data/data.service';
+import {TickerService} from './shared/services/ticker/ticker.service';
+import {DashboardResolverService} from './shared/resolvers/dashboard-resolver.service';
+import {HttpErrorInterceptor} from './shared/interceptors/http-error.interceptor';
 
 @NgModule({
   declarations: [
