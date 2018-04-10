@@ -1,4 +1,4 @@
-export interface TickerVo {
+export interface TickerModel {
   id: string;
   name: string;
   symbol: string;

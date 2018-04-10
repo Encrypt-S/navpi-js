@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {WalletService} from '../../shared/services/wallet/wallet.service';
-import {StakingVo} from '../../shared/parsers/vo/staking.vo';
+import {StakingModel} from '../../shared/models/staking.model';
 
 
 @Component({
@@ -10,7 +10,7 @@ import {StakingVo} from '../../shared/parsers/vo/staking.vo';
 })
 export class WalletComponent implements OnInit {
 
-  stakeReport: StakingVo;
+  stakeReport: StakingModel;
 
   constructor(
     private _walletService: WalletService

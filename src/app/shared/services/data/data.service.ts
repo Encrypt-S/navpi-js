@@ -1,15 +1,15 @@
 import {Injectable} from '@angular/core';
-import {StakingVo} from '../../parsers/vo/staking.vo';
-import {UserVo} from '../../parsers/vo/user.vo';
+import {StakingModel} from '../../models/staking.model';
+import {AuthModel} from '../../models/auth.model';
 
 @Injectable()
 export class DataService {
 
   constructor() { }
 
-  userData: UserVo;
+  userData: AuthModel;
 
-  stakingData: StakingVo;
+  stakingData: StakingModel;
 
 
 }

@@ -1,5 +1,5 @@
 import {HttpClient} from '@angular/common/http';
-import {StakingVo} from '../../parsers/vo/staking.vo';
+import {StakingModel} from '../../models/staking.model';
 import {parseStakingReport} from '../../parsers/staking-data.parser';
 import {CoreService} from '../core/core.service';
 import {DataService} from '../data/data.service';
@@ -14,7 +14,7 @@ export class WalletService {
     private _dataService: DataService,
   ) { }
 
-  async getStakingReport(): Promise<StakingVo> {
+  async getStakingReport(): Promise<StakingModel> {
 
     const reportPath = `${this._coreService.apiServerPath}/wallet/v1/getstakereport`;
 

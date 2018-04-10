@@ -1,10 +1,10 @@
-import {TickerVo} from './vo/ticker.vo';
+import {TickerModel} from '../models/ticker.model';
 
 export function parseTicker(rawJSON: any) {
 
   const d = rawJSON[0];
 
-  let model = {} as TickerVo;
+  let model = {} as TickerModel;
 
   model.id = d.id;
   model.name = d.name;

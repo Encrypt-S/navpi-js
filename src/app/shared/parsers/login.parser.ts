@@ -1,8 +1,8 @@
-import {UserVo} from './vo/user.vo';
+import {AuthModel} from '../models/auth.model';
 
-export function loginParser(rawReportJSON: any): UserVo {
+export function loginParser(rawReportJSON: any): AuthModel {
 
-  const userVO: UserVo = {} as UserVo;
+  const userVO: AuthModel = {} as AuthModel;
 
   userVO.JWTToken = rawReportJSON.data;
 

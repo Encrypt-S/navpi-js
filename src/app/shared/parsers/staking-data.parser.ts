@@ -1,10 +1,10 @@
-import {Staking30DayVO, StakingVo} from './vo/staking.vo';
+import {Staking30DayModel, StakingModel} from '../models/staking.model';
 import {DatePipe} from '@angular/common';
 
-export function parseStakingReport(rawReportJSON: any): StakingVo {
+export function parseStakingReport(rawReportJSON: any): StakingModel {
 
-  const stakingData: StakingVo = {} as StakingVo;
-  const stakingGraph: Staking30DayVO[] = [];
+  const stakingData: StakingModel = {} as StakingModel;
+  const stakingGraph: Staking30DayModel[] = [];
 
   const result = rawReportJSON.result;
 
@@ -46,7 +46,7 @@ export function parseStakingReport(rawReportJSON: any): StakingVo {
 
       default:
         // not caught above so is day report
-        const stakeGraphModel: Staking30DayVO = {} as Staking30DayVO;
+        const stakeGraphModel: Staking30DayModel = {} as Staking30DayModel;
         stakeGraphModel.value = parseFloat(result[key]);
         stakeGraphModel.name = new DatePipe('en-US').transform(new Date(key), 'd MMM');
 
