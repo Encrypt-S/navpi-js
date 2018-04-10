@@ -5,8 +5,10 @@ import {StakingModel} from '../../models/staking.model';
 export class DataServiceStub {
 
   stakingData: StakingModel;
+  authData;
 
   constructor() {
+
 
     this.stakingData = {} as StakingModel;
     this.stakingData.graph = [];
