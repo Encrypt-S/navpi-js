@@ -165,7 +165,7 @@ describe('AuthService', () => {
 
     it('should NOT authenticate if token is malformed', inject([AuthService], (service: AuthService) => {
       service.dataService.authData = {} as AuthModel;
-      service.dataService.authData.rawToken = "sadkfjhasdkfhjaskdjfh.asdkfjjhhasdkjfhaskdjf373.asdfasdfasdfasdf";
+      service.dataService.authData.rawToken = 'sadkfjhasdkfhjaskdjfh.asdkfjjhhasdkjfhaskdjf373.asdfasdfasdfasdf';
       expect(service.isAuthenticated()).toEqual(false);
     }));
 
