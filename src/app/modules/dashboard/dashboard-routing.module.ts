@@ -1,10 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {DashboardComponent} from './dashboard.component';
-import {DashboardResolverService} from '../../shared/resolvers/dashboard-resolver.service';
+import {AuthGuard} from "../../shared/services/guards/auth.guard";
 
-
-// import {AuthGuard} from '../services/auth/auth-guard.service';
 
 @NgModule({
   imports: [
@@ -13,10 +11,10 @@ import {DashboardResolverService} from '../../shared/resolvers/dashboard-resolve
       {
         path: 'dashboard',
         component: DashboardComponent,
-        resolve: {
-          dashResolve: DashboardResolverService
-        }
-        // canActivate: [AuthGuard],
+        // resolve: {
+        //   authResolve: AuthResolver
+        // }
+        canActivate: [AuthGuard]
       },
 
 
