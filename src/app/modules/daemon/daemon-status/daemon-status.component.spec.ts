@@ -1,8 +1,9 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {DaemonStatusComponent} from './daemon-status.component';
-import {DaemonService} from '../../../services/daemon/daemon.service';
-import {DaemonServiceStub} from '../../../services/daemon/daemon.service.stub';
+import {DaemonService} from '../../../shared/services/daemon/daemon.service';
+import {DaemonServiceStub} from '../../../shared/services/daemon/daemon.service.stub';
+
 
 describe('DaemonStatusComponent', () => {
   let component: DaemonStatusComponent;
