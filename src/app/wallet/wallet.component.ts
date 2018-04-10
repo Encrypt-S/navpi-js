@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {WalletService} from '../services/wallet/wallet.service';
 import {StakingVo} from '../services/parsers/vo/staking.vo';
 

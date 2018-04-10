@@ -1,7 +1,12 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {LoginVO} from '../services/login/vo/login.vo';
 import {LoginService} from '../services/login/login.service';
+import {ErrorService} from '../services/error/error.service';
+import {IAppError} from '../services/error/app-error.interface';
+import {LoginError} from '../services/error/errors/login-error';
+
 
 @Component({
   selector: 'app-login',
@@ -15,7 +20,14 @@ export class LoginComponent implements OnInit {
   usernameFormCtrl: FormControl;
   passwordFormCtrl: FormControl;
 
-  constructor(private _loginService: LoginService) {}
+  showLoginError: boolean;
+  errorMsg: string;
+
+  constructor(
+    private _loginService: LoginService,
+    private _errorService: ErrorService,
+    private _router: Router
+  ) {}
 
   ngOnInit() {
     this.loginForm = new FormGroup({});
@@ -28,15 +40,34 @@ export class LoginComponent implements OnInit {
 
   }
 
-  onSubmit($event: Event) {
+  async onSubmit($event: Event) {
 
     if ($event == null) { return; } else {$event.preventDefault();}
 
-    const loginVO: LoginVO = {} as LoginVO;
-          loginVO.username = this.usernameFormCtrl.value.toString();
-          loginVO.password = this.passwordFormCtrl.value.toString();
+    //reset the form state
+    this.showLoginError = false;
 
-    this._loginService.handleLogin(loginVO);
+    const loginVO: LoginVO = {} as LoginVO;
+
+      loginVO.username = this.usernameFormCtrl.value.toString();
+      loginVO.password = this.passwordFormCtrl.value.toString();
+
+    try {
+
+      await  this._loginService.handleLogin(loginVO);
+      return this._router.navigate(['dashboard'])
+
+    } catch (e) {
+
+      const err: IAppError = this._errorService.getError(e.error);
+      if (err.code === LoginError.code) {
+
+        this.showLoginError = true;
+        this.errorMsg = err.message;
+      }
+
+    }
+
   }
 
 }

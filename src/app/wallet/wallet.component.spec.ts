@@ -1,9 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WalletComponent } from './wallet.component';
+import {WalletComponent} from './wallet.component';
 import {HeaderMockComponent} from '../shared-ui/ui/components/header/mocks/header.component.mock';
-import {WalletService} from "../services/wallet/wallet.service";
-import {WalletServiceStub} from "../services/wallet/wallet.service.stub";
+import {WalletService} from '../services/wallet/wallet.service';
+import {WalletServiceStub} from '../services/wallet/wallet.service.stub';
 
 describe('WalletComponent', () => {
   let component: WalletComponent;

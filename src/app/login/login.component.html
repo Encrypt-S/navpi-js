@@ -1,26 +1,37 @@
-<div>
+<div style="padding-top: 200px" fxLayout="row" fxLayoutAlign="space-around center" >
 
   <mat-card>
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="loginForm"
+            (ngSubmit)="onSubmit($event)">
 
-    <form [formGroup]="loginForm"
-          (ngSubmit)="onSubmit($event)"
-          class="example-form">
+        <div>
+          <mat-form-field>
+            <input matInput
+                   formControlName="username"
+                   placeholder="Username">
+          </mat-form-field>
 
-      <mat-form-field>
-        <input matInput
-               formControlName="username"
-               placeholder="Username">
-      </mat-form-field>
+          <mat-form-field>
+            <input matInput
+                   formControlName="password"
+                   placeholder="Password" type="password">
+          </mat-form-field>
 
-      <mat-form-field  class="example-full-width">
-        <input matInput
-               formControlName="password"
-               placeholder="Username" type="password">
-      </mat-form-field>
+          <div *ngIf="showLoginError" style="color: crimson;">
+            <p>{{errorMsg}}</p>
+          </div>
 
-      <button [disabled]="this.loginForm.invalid" mat-button>Login</button>
+          <button [disabled]="this.loginForm.invalid" mat-button>Login</button>
 
-    </form>
+        </div>
+
+      </form>
+
+    </mat-card-content>
 
   </mat-card>
 

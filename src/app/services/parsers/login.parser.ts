@@ -1,14 +1,13 @@
-import {LoginVO} from '../login/vo/login.vo';
+import {UserVo} from './vo/user.vo';
 
-export function parseLogin(rawJSON: any) {
+export function loginParser(rawReportJSON: any): UserVo {
 
-  const d = rawJSON[0];
+  const userVO: UserVo = {} as UserVo;
 
-  let model = {} as LoginVO;
+  userVO.JWTToken = rawReportJSON.data;
 
-  model.username = d.username;
-  model.password = d.password;
-
-  return model;
+  return userVO;
 
 }
+
+

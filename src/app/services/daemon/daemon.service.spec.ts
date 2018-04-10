@@ -1,8 +1,8 @@
-import { TestBed, inject } from '@angular/core/testing';
+import {inject, TestBed} from '@angular/core/testing';
 
-import { DaemonService } from './daemon.service';
-import {WalletServiceStub} from "../wallet/wallet.service.stub";
-import {WalletService} from "../wallet/wallet.service";
+import {DaemonService} from './daemon.service';
+import {WalletServiceStub} from '../wallet/wallet.service.stub';
+import {WalletService} from '../wallet/wallet.service';
 
 describe('DaemonService', () => {
   beforeEach(() => {

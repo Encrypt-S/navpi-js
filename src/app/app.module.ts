@@ -1,5 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -14,6 +15,8 @@ import {DaemonModule} from './daemon/daemon.module';
 import {DaemonService} from './services/daemon/daemon.service';
 import {LoginModule} from './login/login.module';
 import {LoginService} from './services/login/login.service';
+import {HttpErrorInterceptor} from './interceptors/http-error.interceptor';
+import {ErrorService} from './services/error/error.service';
 
 @NgModule({
   declarations: [
@@ -37,12 +40,20 @@ import {LoginService} from './services/login/login.service';
     WalletService,
     DaemonService,
     LoginService,
+    ErrorService,
 
     DataService,
     TickerService,
 
     // RESOLVERS
-    DashboardResolverService
+    DashboardResolverService,
+
+    // INTERCEPTORS
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true
+    }
 
   ],
   bootstrap: [AppComponent]
