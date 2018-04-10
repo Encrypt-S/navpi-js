@@ -17,6 +17,7 @@ import {DataService} from './shared/services/data/data.service';
 import {TickerService} from './shared/services/ticker/ticker.service';
 import {DashboardResolverService} from './shared/resolvers/dashboard-resolver.service';
 import {HttpErrorInterceptor} from './shared/interceptors/http-error.interceptor';
+import {TokenInterceptor} from "./shared/interceptors/token.interceptor";
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import {HttpErrorInterceptor} from './shared/interceptors/http-error.interceptor
   ],
   providers: [
 
-    // SERVICES
+    // SERVICES -------------------------------------------
     CoreService,
     WalletService,
     DaemonService,
@@ -45,15 +46,23 @@ import {HttpErrorInterceptor} from './shared/interceptors/http-error.interceptor
     DataService,
     TickerService,
 
-    // RESOLVERS
+    // RESOLVERS ------------------------------------------
     DashboardResolverService,
 
-    // INTERCEPTORS
-    {
+    // INTERCEPTORS ---------------------------------------
+    { // look as each http resp for common errors
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorInterceptor,
       multi: true
+    },
+
+    { // add the Bearer token on each http call
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
     }
+
+
 
   ],
   bootstrap: [AppComponent]
